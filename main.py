@@ -1,32 +1,32 @@
 # main.py
 
-# Import method 1
 import math_utils
-
-# Import method 2
 from math_utils import square
 
 import string_utils
 
-# Import from package
-from shop_package.discount import apply_discount
-from shop_package.billing import calculate_total
+# Correct import style (VERY IMPORTANT)
+import shop_package.discount as disc
+import shop_package.billing as bill
 
 
-# ---- Testing math_utils ----
-print("Add:", math_utils.add(5, 3))
-print("Subtract:", math_utils.subtract(10, 4))
-print("Square:", square(6))
+# ---- math_utils ----
+print("Add:", math_utils.add(2, 3))
+print("Square:", square(5))
 
 
-# ---- Testing string_utils ----
-print("Upper:", string_utils.to_upper("hello"))
-print("Lower:", string_utils.to_lower("WORLD"))
-print("Length:", string_utils.get_length("Python"))
+# ---- string_utils ----
+text = "hello world"
+print("Capitalize:", string_utils.capitalize_words(text))
+print("Reverse:", string_utils.reverse_string(text))
+print("Word Count:", string_utils.word_count(text))
 
 
-# ---- Testing package functions ----
-prices = [100, 200, 300]
+# ---- package functions ----
+price = 1000
 
-print("Total:", calculate_total(prices))
-print("Discounted Price:", apply_discount(1000, 10))
+print("Percentage Discount:", disc.apply_discount(price, 10))
+print("Flat Discount:", disc.flat_discount(price, 100))
+
+print("Total:", bill.calculate_total([100, 200, 300]))
+print("Price with Tax:", bill.apply_tax(price, 18))
