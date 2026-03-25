@@ -1,10 +1,10 @@
 # string_utils.py
 
-def to_upper(text):
-    return text.upper()
+def capitalize_words(text):
+    return text.title()
 
-def to_lower(text):
-    return text.lower()
+def reverse_string(text):
+    return text[::-1]
 
-def get_length(text):
-    return len(text)s
+def word_count(text):
+    return len(text.split())
